@@ -1,0 +1,27 @@
+# Local media and temporary processing files
+/downloads/
+/outputs/
+# Python bytecode and tooling
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+venv-*/
+.venv-*/
+# Local configuration, models, and logs
+.env
+.env.*
+*.log
+.cache/
+# Editors and OS metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

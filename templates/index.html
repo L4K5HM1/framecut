@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Turn a selected video moment into a captioned vertical short, locally.">
+  <title>Framecut — Your next cut</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <main class="workspace">
+    <header class="header"><a class="brand" href="/" aria-label="Framecut home"><span class="mark" aria-hidden="true">▥</span> Framecut</a><span class="local-badge"><i></i> LOCAL WORKSPACE</span></header>
+    <section class="hero"><p class="eyebrow">LESS EDITING. MORE CREATING.</p><h1>A great moment.<br><span>A sharper cut.</span></h1><p>Choose your moment. Frame it vertically. Add captions.<br>Make your next short right here on your computer.</p><div class="specs"><span>9:16 VERTICAL</span><span>1080 × 1920</span><span>WORD-LEVEL CAPTIONS</span></div></section>
+    <section class="panel source"><div class="section-heading"><span class="step">01</span><div><h2>Start with a video</h2><p>Paste a YouTube video link to load the source.</p></div></div>
+      <form id="loadForm"><label for="url">YouTube URL</label><div class="input-row"><input id="url" type="url" placeholder="https://www.youtube.com/watch?v=…" required autocomplete="off"><button id="loadBtn" type="submit">Load video <span aria-hidden="true">↗</span></button></div></form>
+      <p id="loadStatus" role="status" aria-live="polite">Your source and exported files stay on this computer.</p>
+    </section>
+    <section class="panel hidden" id="editorPanel"><div class="section-heading"><span class="step">02</span><div><h2>Find your moment</h2><p>Drag the handles, use arrow keys, or enter precise times.</p></div></div>
+      <video id="preview" controls preload="metadata" aria-label="Source video preview"></video>
+      <div class="timeline" id="timeline"><div id="selection"></div><button type="button" class="handle" id="handleStart" role="slider" aria-label="Clip start" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0"></button><button type="button" class="handle" id="handleEnd" role="slider" aria-label="Clip end" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0"></button><div id="playhead"></div></div>
+      <div class="time-labels"><span>0:00</span><span id="selectionLabel"></span><span id="durationLabel"></span></div>
+      <div class="edit-options"><label>Start (seconds)<input id="startInput" type="number" min="0" step="0.1"></label><label>End (seconds)<input id="endInput" type="number" min="0" step="0.1"></label><button class="secondary" id="previewBtn" type="button">Preview selection</button></div>
+      <div class="export-row"><label class="check"><input type="checkbox" id="captionsToggle" checked><span>Burn in captions<small>Transcribe speech locally. First use downloads a model.</small></span></label><button id="createBtn" type="button">Export short →</button></div>
+      <p class="hint">Center crop · H.264 MP4 · Maximum clip length: 3 minutes</p><p id="status" role="status" aria-live="polite"></p>
+    </section>
+    <section class="panel hidden" id="resultPanel"><div class="section-heading"><span class="step">03</span><div><h2>Your short is ready</h2><p>Review your export before sharing it.</p></div></div><div id="result"></div></section>
+    <footer>Built for the moments worth keeping.<span>Framecut / Local edition</span></footer>
+  </main>
+</body>
+</html>
